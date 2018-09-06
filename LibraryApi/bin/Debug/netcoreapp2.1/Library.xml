@@ -25,14 +25,14 @@
             <param name="bookImage"></param>
             <returns></returns>
         </member>
-        <member name="M:LibraryApi.Lease.LeaseController.Lease(System.String)">
+        <member name="M:LibraryApi.Lease.LeaseController.Lease(LibraryApi.Lease.Lease)">
             <summary>
             Lease a book
             </summary>
             <param name="bookImage"></param>
             <returns></returns>
         </member>
-        <member name="M:LibraryApi.Lease.LeaseController.Return(System.String)">
+        <member name="M:LibraryApi.Lease.LeaseController.Return(LibraryApi.Lease.Lease)">
             <summary>
             Return a book
             </summary>
@@ -46,7 +46,28 @@
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:LibraryApi.Users.UserController.Login(System.String)">
+        <member name="M:LibraryApi.Users.UserController.Login(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Authorize a user
+            </summary>
+            <param name="image"></param>
+            <returns>User info with auth token</returns>
+        </member>
+        <member name="M:LibraryApi.Users.UserController.Login(LibraryApi.Users.AuthRequest)">
+            <summary>
+            Authorize a user
+            </summary>
+            <param name="image"></param>
+            <returns>User info with auth token</returns>
+        </member>
+        <member name="M:LibraryApi.Users.UserController.Confirm">
+            <summary>
+            Authorize a user
+            </summary>
+            <param name="image"></param>
+            <returns>User info with auth token</returns>
+        </member>
+        <member name="M:LibraryApi.Users.UserController.Confirm(LibraryApi.Users.AuthRequest)">
             <summary>
             Authorize a user
             </summary>

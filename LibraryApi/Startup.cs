@@ -52,6 +52,7 @@ namespace LibraryApi
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<UserManager>();
+            services.AddHttpClient<UserManager>(client => client.BaseAddress = new Uri("http://localhost:3000"));
 
             services.AddSwaggerGen(
                 c =>

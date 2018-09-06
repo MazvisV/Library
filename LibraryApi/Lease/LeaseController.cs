@@ -52,7 +52,7 @@ namespace LibraryApi.Lease
         /// <param name="bookImage"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Lease([FromBody] string bookQrCode)
+        public async Task<IActionResult> Lease([FromBody] Lease leaseRequest)
         {
             var identity = User?.Identity as ClaimsIdentity;
             var userId = int.Parse(identity?.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value);
@@ -62,7 +62,7 @@ namespace LibraryApi.Lease
                 .SingleAsync(u => u.Id == userId);
 
             // get book barcode
-            var book = await _db.Books.Where(b => b.BarCode == bookQrCode).FirstOrDefaultAsync();
+            var book = await _db.Books.Where(b => b.BarCode == leaseRequest.BarCode).FirstOrDefaultAsync();
 
             if (book == null)
             {
@@ -100,19 +100,19 @@ namespace LibraryApi.Lease
         /// <param name="bookImage"></param>
         /// <returns></returns>
         [HttpDelete]
-        public async Task<IActionResult> Return([FromBody] string bookQrCode)
+        public async Task<IActionResult> Return([FromBody] Lease leaseRequest)
         {
             var identity = User?.Identity as ClaimsIdentity;
             var userId = int.Parse(identity?.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value);
 
             var lease = await _db.Leases
                 .Where(
-                    l => l.Book.BarCode == bookQrCode
+                    l => l.Book.BarCode == leaseRequest.BarCode
                         && l.UserId == userId)
                 .FirstOrDefaultAsync();
 
             // get book barcode
-            var book = await _db.Books.Where(b => b.BarCode == bookQrCode).FirstOrDefaultAsync();
+            var book = await _db.Books.Where(b => b.BarCode == leaseRequest.BarCode).FirstOrDefaultAsync();
 
             if (lease == null)
             {
@@ -126,5 +126,10 @@ namespace LibraryApi.Lease
 
             return Ok();
         }
+    }
+
+    public class Lease
+    {
+        public string BarCode { get; set; }
     }
 }

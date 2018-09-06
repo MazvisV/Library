@@ -12333,23 +12333,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BC6653\\.nuget\\packages\\": {},
+    "C:\\Users\\Ramzy\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\Library\\LibraryApi\\LibraryApi.csproj",
+      "projectUniqueName": "C:\\Repos\\LibApi\\LibraryApi\\LibraryApi.csproj",
       "projectName": "LibraryApi",
-      "projectPath": "C:\\Repos\\Library\\LibraryApi\\LibraryApi.csproj",
-      "packagesPath": "C:\\Users\\BC6653\\.nuget\\packages\\",
-      "outputPath": "C:\\Repos\\Library\\LibraryApi\\obj\\",
+      "projectPath": "C:\\Repos\\LibApi\\LibraryApi\\LibraryApi.csproj",
+      "packagesPath": "C:\\Users\\Ramzy\\.nuget\\packages\\",
+      "outputPath": "C:\\Repos\\LibApi\\LibraryApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\BC6653\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ramzy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12357,8 +12357,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://artifactory.danskenet.net/artifactory/api/nuget/db-nuget-mobilelife": {},
-        "http://artifactory.danskenet.net/artifactory/api/nuget/db-nuget-mstp": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

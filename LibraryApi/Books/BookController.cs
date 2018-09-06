@@ -22,7 +22,7 @@ namespace LibraryApi.Books
         /// <param name="book"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Register(BookInfo book)
+        public async Task<IActionResult> Register([FromBody] BookInfo book)
         {
             _db.Books.Add(new Book { BarCode = book.QrCode, IsAvailable = true, Title = book.Title });
             await _db.SaveChangesAsync();
