@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibraryApi</name>
+    </assembly>
+    <members>
+        <member name="M:LibraryApi.Books.BookController.Register(LibraryApi.Books.BookInfo)">
+            <summary>
+            Add a new book
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibraryApi.Books.BookController.Get">
+            <summary>
+            Get a list of existing books
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibraryApi.Lease.LeaseController.Get">
+            <summary>
+            Get a list of leases
+            </summary>
+            <param name="bookImage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibraryApi.Lease.LeaseController.Lease(System.String)">
+            <summary>
+            Lease a book
+            </summary>
+            <param name="bookImage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibraryApi.Lease.LeaseController.Return(System.String)">
+            <summary>
+            Return a book
+            </summary>
+            <param name="bookImage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibraryApi.Users.UserController.RegisterUser(LibraryApi.Controllers.UserInfo)">
+            <summary>
+            Register a new user
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibraryApi.Users.UserController.Login(System.String)">
+            <summary>
+            Authorize a user
+            </summary>
+            <param name="image"></param>
+            <returns>User info with auth token</returns>
+        </member>
+    </members>
+</doc>
