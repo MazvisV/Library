@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryApi.Controllers;
 using LibraryApi.Persistance;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -82,6 +83,37 @@ namespace LibraryApi.Users
                 });
         }
 
+        /// <summary>
+        /// Authorize a user
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns>User info with auth token</returns>
+        [Authorize]
+        [HttpPost("authorize/confirmation")]
+        public async Task<IActionResult> Confirm()
+        {
+            // Send pic to add to learning algorithm
+
+            var identity = User?.Identity as ClaimsIdentity;
+            var userId = int.Parse(identity?.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value);
+
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var tokenString = GetJwtToken(user);
+
+            return Ok(
+                new
+                {
+                    Token = tokenString
+                });
+        }
+
+
+
         private string GetJwtToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -91,7 +123,7 @@ namespace LibraryApi.Users
                 Subject = new ClaimsIdentity(
                     new[]
                         {
-                           new Claim(ClaimTypes.Name, user.Id.ToString()) 
+                           new Claim(ClaimTypes.Name, user.Id.ToString())
                         }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(
